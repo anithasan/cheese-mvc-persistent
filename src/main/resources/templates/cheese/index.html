@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
 <body class="container">
@@ -7,6 +7,7 @@
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
+<br/>
 
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
@@ -16,16 +17,18 @@
     <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Type</th>
+        <th>Category</th>
     </tr>
-
+    <!--Displays the name,description and category with the contents-->
     <tr th:each="cheese : ${cheeses}">
         <td th:text="${cheese.name}"></td>
         <td th:text="${cheese.description}"></td>
-        <td th:text="${cheese.type.name}"></td>
+        <td th:text="${cheese.category.name}"></td>
     </tr>
 
 </table>
+<a href="/cheese/add">Add</a> |
+<a href="/cheese/remove">Remove</a>
 
 </body>
 </html>
